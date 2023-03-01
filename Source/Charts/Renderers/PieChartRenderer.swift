@@ -372,6 +372,11 @@ open class PieChartRenderer: NSObject, DataRenderer
                 }
 
                 let sliceAngle = drawAngles[xIndex]
+                
+                if sliceAngle / 360.0 < 0.05 {
+                    continue
+                }
+                
                 let sliceSpace = getSliceSpace(dataSet: dataSet)
                 let sliceSpaceMiddleAngle = sliceSpace / labelRadius.DEG2RAD
 
